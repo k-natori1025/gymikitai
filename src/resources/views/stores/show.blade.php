@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            ジム登録画面
+            ジム詳細画面
         </h2>
     </x-slot>
 
@@ -10,11 +10,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                   <section class="text-gray-600 body-font relative">
-                    <form method="post" action="{{ route('stores.store') }}">
-                      @csrf
                     <div class="container px-5 py-24 mx-auto">
                       <div class="flex flex-col text-center w-full mb-12">
-                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">ジム新規登録</h1>
+                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{ $store->name }}</h1>
                         <p class="lg:w-2/3 mx-auto leading-relaxed text-base">ジム情報の登録にご協力ください。</p>
                       </div>
                       <div class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -97,7 +95,6 @@
                           <div class="p-2 w-full">
                             <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">新規登録する</button>
                           </div>
-                    </form>
                   </section>
                 </div>
             </div>

@@ -12,7 +12,11 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return view('stores.index');
+        // ->get()でコレクション型にする
+        $stores = Store::select('id', 'name', 'address', 'price')->get();
+
+        // compactでviewにデータを渡す
+        return view('stores.index', compact('stores'));
     }
 
     /**
@@ -41,13 +45,13 @@ class StoreController extends Controller
             'address' => $request->address,
             'phone' => $request->phone,
             'url' => $request->url,
-            'all-day' => $request->allDay,
+            'all_day' => $request->allDay,
             'open' => $request->open,
             'close' => $request->close,
-            'price-style' => $request->priceStyle,
+            'price_style' => $request->priceStyle,
             'price' => $request->price,
             'visitor' => $request->visitor,
-            'max-weight' => $request->maxWeight,
+            'max_weight' => $request->maxWeight,
         ]);
 
         return to_route('stores.index');
@@ -58,7 +62,9 @@ class StoreController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $store = Store::find($id);
+
+        return view('stores.show', compact('store'));
     }
 
     /**
