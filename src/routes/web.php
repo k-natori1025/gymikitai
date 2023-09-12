@@ -28,4 +28,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// breezeによりできたルーティングを読み込み
 require __DIR__.'/auth.php';

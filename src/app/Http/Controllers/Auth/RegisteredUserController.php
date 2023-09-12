@@ -30,12 +30,14 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // バリデーションをかける
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        // 登録
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -44,7 +46,11 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
+        // ログイン処理
         Auth::login($user);
+        
+        // フラッシュメッセージの表示
+        session()->flash('flashSuccess', '登録が完了しました');
 
         return redirect(RouteServiceProvider::HOME);
     }
