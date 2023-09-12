@@ -13,6 +13,19 @@ return new class extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 20);
+            $table->string('address', 100);
+            $table->string('phone')->nullable();
+            $table->string('open')->nullable();
+            $table->string('close')->nullable();
+            $table->boolean('all-day');
+            $table->string('off')->nullable();
+            $table->boolean('visitor');
+            $table->string('visitor-price')->nullable();
+            $table->tinyInteger('price-style')->nullable();
+            $table->string('price')->nullable();
+            $table->tinyInteger('mini-weight')->nullable();
+            $table->tinyInteger('max-weight')->nullable();
             $table->timestamps();
         });
     }

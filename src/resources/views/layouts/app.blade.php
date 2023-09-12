@@ -17,6 +17,9 @@
         <!-- Toastr.jsを使えるようにする -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
+        <!-- トグル用cssの読み込み -->
+        <!-- <link rel="stylesheet" href="resources/css/toggle.css"> -->
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

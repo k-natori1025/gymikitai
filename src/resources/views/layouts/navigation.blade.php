@@ -17,6 +17,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('stores.index')" :active="request()->routeIs('stores.index')">
+                        ジム一覧
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('stores.create')" :active="request()->routeIs('stores.create')">
+                        ジムを登録
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
