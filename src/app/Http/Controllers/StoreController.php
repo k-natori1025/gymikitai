@@ -68,6 +68,8 @@ class StoreController extends Controller
             'user_id' => $id,
         ]);
 
+        session()->flash('flashSuccess', 'ジム情報の登録が完了しました');
+
         return to_route('stores.index');
     }
 
@@ -85,7 +87,15 @@ class StoreController extends Controller
 
         $visitor = CheckStoreService::checkVisitor($store);
 
-        return view('stores.show', compact('store', 'businessHour', 'term', 'visitor'));
+        // 登録したユーザー
+        $writer = User::find($store->user_id);
+        // dd($writer);
+
+        //ログイン中のユーザー
+        $user = Auth::user();
+        // dd($user);
+
+        return view('stores.show', compact('store', 'businessHour', 'term', 'visitor', 'writer', 'user'));
     }
 
     /**
@@ -117,6 +127,8 @@ class StoreController extends Controller
         $store->maximum = $request->maximum;
 
         $store->save();
+
+        session()->flash('flashSuccess', 'ジム情報を編集しました');
 
         return to_route('stores.index');
 

@@ -13,7 +13,7 @@
                     <div class="container px-5 py-24 mx-auto">
                       <div class="flex flex-col text-center w-full mb-12">
                         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{ $store->name }}</h1>
-                        <!-- <p class="lg:w-2/3 mx-auto leading-relaxed text-base">ジム情報の登録にご協力ください。</p> -->
+                        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">このジムの登録者:{{ $writer->name }}</p> 
                       </div>
                       <div class="lg:w-1/2 md:w-2/3 mx-auto">
                         <div class="flex flex-wrap -m-2">
@@ -100,17 +100,18 @@
                           </div>
                           </form>
 
+                          @if($writer->id === $user->id)
                           <form method="post" action="{{ route('stores.destroy', ['id'=>$store->id]) }}">
                             @csrf
                           <div class="p-2 w-full">
                             <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">削除する</a>
                           </div>
                           </form>
-
-                          <form method="post" action="{{ route('stores.destroy', [ 'id' => $store->id ])}}" id="delete_{{ $store->id }}">
+                         @endif
+                          <!-- <form method="post" action="{{ route('stores.destroy', [ 'id' => $store->id ])}}" id="delete_{{ $store->id }}">
                             @csrf
                             <a href="#" data-id="{{ $store->id }}" onclick="deletePost(this)">削除する</a>
-                          </form>
+                          </form> -->
                   </section>
                 </div>
             </div>
@@ -118,12 +119,12 @@
     </div>
 
 <!-- 削除確認メッセージ -->
-<script>
+<!-- <script>
 function deletePost(e){
   'use strict' if(confirm('本当に削除していいですか?')) {
     document.getElementById('delete_' + e.dataset.id).submit() 
   }
 } 
-</script>
+</script> -->
 
 </x-app-layout>
