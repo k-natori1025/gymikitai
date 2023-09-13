@@ -14,13 +14,13 @@ class Store extends Model
         'address',
         'phone',
         'url',
-        'allDay',
+        'twentyfour',
         'open',
         'close',
-        'priceStyle',
+        'term',
         'price',
         'visitor',
-        'maxWeight',
+        'maximum',
     ];
 
 }

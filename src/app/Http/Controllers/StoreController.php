@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Store;
+use App\Services\CheckStoreService;
 
 class StoreController extends Controller
 {
@@ -45,13 +46,13 @@ class StoreController extends Controller
             'address' => $request->address,
             'phone' => $request->phone,
             'url' => $request->url,
-            'all_day' => $request->allDay,
+            'twentyfour' => $request->twentyfour,
             'open' => $request->open,
             'close' => $request->close,
-            'price_style' => $request->priceStyle,
+            'term' => $request->term,
             'price' => $request->price,
             'visitor' => $request->visitor,
-            'max_weight' => $request->maxWeight,
+            'maximum' => $request->maximum,
         ]);
 
         return to_route('stores.index');
@@ -64,7 +65,14 @@ class StoreController extends Controller
     {
         $store = Store::find($id);
 
-        return view('stores.show', compact('store'));
+        // サービスへの切り離し→コントローラーをスリムに
+        $businessHour = CheckStoreService::checkTwentyfour($store);
+
+        $term = CheckStoreService::checkTerm($store);
+
+        $visitor = CheckStoreService::checkVisitor($store);
+
+        return view('stores.show', compact('store', 'businessHour', 'term', 'visitor'));
     }
 
     /**
@@ -72,7 +80,8 @@ class StoreController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $store = Store::find($id);
+        return view('stores.edit', compact('store'));
     }
 
     /**
@@ -80,7 +89,24 @@ class StoreController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $store = Store::find($id);
+
+        $store->name = $request->name;
+        $store->address = $request->address;
+        $store->phone = $request->phone;
+        $store->url = $request->url;
+        $store->twentyfour = $request->twentyfour;
+        $store->open = $request->open;
+        $store->close = $request->close;
+        $store->term = $request->term;
+        $store->price = $request->price;
+        $store->visitor = $request->visitor;
+        $store->maximum = $request->maximum;
+
+        $store->save();
+
+        return to_route('stores.index');
+
     }
 
     /**
@@ -88,6 +114,10 @@ class StoreController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $store = Store::find($id);
+        $store->delete();
+
+        return to_route('stores.index');
+
     }
 }
