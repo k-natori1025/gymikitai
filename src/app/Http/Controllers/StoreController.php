@@ -5,16 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Store;
 use App\Services\CheckStoreService;
+use App\Http\Requests\StoreRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class StoreController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // ->get()でコレクション型にする
-        $stores = Store::select('id', 'name', 'address', 'price')->get();
+        //全件取得
+        // $stores = Store::select('id', 'name', 'address', 'price')->get();
+
+        //検索結果取得
+        $search = $request->search;
+        $query = Store::search($search);
+        $stores = $query->select('id', 'name', 'address', 'price')->get();
 
         // compactでviewにデータを渡す
         return view('stores.index', compact('stores'));
@@ -31,7 +40,7 @@ class StoreController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         // バリデーションをかける
         // $request->validate([
@@ -39,6 +48,9 @@ class StoreController extends Controller
         //     'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
         //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
         // ]);
+        
+        // $user = Auth::user(); //追記
+        $id = Auth::id(); //追記
 
         // 登録
         $store = Store::create([
@@ -53,6 +65,7 @@ class StoreController extends Controller
             'price' => $request->price,
             'visitor' => $request->visitor,
             'maximum' => $request->maximum,
+            'user_id' => $id,
         ]);
 
         return to_route('stores.index');

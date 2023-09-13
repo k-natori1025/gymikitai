@@ -3,6 +3,10 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             ジム一覧
         </h2>
+        <form method="get" action="{{ route('stores.index') }}">
+          <input type="text" name="search" placeholder="検索">
+          <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">検索する</button>
+        </form>
     </x-slot>
 
     <div class="py-12">
