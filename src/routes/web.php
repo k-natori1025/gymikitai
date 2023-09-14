@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,18 @@ Route::prefix('stores')
 
 // ルーティング（RESTfull）
 // Route::resource('stores', StoreController::class);
+
+Route::prefix('comments')
+->middleware(['auth']) //認証（ログインなしにそのページへいけないようにする）
+->controller(CommentController::class)
+->name('comments.')
+->group(function() {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{id}', 'show')->name('show');
+    Route::post('/{id}/destroy', 'destroy')->name('destroy');
+});
 
 // breezeによりできたルーティングを読み込み
 require __DIR__.'/auth.php';
