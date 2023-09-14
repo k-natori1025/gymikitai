@@ -9,14 +9,27 @@ use App\Models\Comment;
 
 class CommentController extends Controller
 {
-    public function store(CommentRequest $request)
+
+    public function create(string $id)
     {
-        $id = Auth::id(); 
+        $storeId = $id;
+        return view('comments.create', compact('storeId'));
+    }
+
+    public function store(Request $request)
+    {
+        $userId = Auth::id(); 
+
+        $inputs = request()->validate([
+            'content' => 'required|max:16384'
+        ]);
+
+        dd($request);
 
         $comment = Comment::create([
-            'content' => $request->content,
-            'user_id' => $id,
-            'store_id' => $request->store_id,
+            'content' => $inputs['content'],
+            'user_id' => $userId,
+            'store_id' => $request->store->id,
         ]);
 
         session()->flash('flashSuccess', 'コメントを投稿しました');

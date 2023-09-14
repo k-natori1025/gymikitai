@@ -59,7 +59,7 @@ Route::prefix('comments')
 ->name('comments.')
 ->group(function() {
     Route::get('/', 'index')->name('index');
-    Route::get('/create', 'create')->name('create');
+    Route::get('/create/{id}', 'create')->name('create');
     Route::post('/', 'store')->name('store');
     Route::get('/{id}', 'show')->name('show');
     Route::post('/{id}/destroy', 'destroy')->name('destroy');

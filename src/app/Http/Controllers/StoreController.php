@@ -114,6 +114,11 @@ class StoreController extends Controller
     {
         $store = Store::find($id);
 
+        $imageFile = $request->image;
+        if(!is_null($imageFile) && $imageFile->isValid()) {
+            $fileNameToStore = ImageService::upload($imageFile, 'stores');
+        }
+
         $store->name = $request->name;
         $store->address = $request->address;
         $store->phone = $request->phone;
@@ -125,6 +130,7 @@ class StoreController extends Controller
         $store->price = $request->price;
         $store->visitor = $request->visitor;
         $store->maximum = $request->maximum;
+        $store->filename = $fileNameToStore;
 
         $store->save();
 

@@ -25,4 +25,11 @@ class CommentRequest extends FormRequest
             'content' => ['required', 'text', 'max:16384'],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'content'=>'文字数は16384字以内でお願いします。',
+        ];
+    }      
 }

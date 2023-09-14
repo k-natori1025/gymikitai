@@ -32,7 +32,8 @@
                         <td class="px-4 py-3">{{ $store->name }}</td>
                         <td class="px-4 py-3">{{ $store->address }}</td>
                         <td class="px-4 py-3">{{ $store->price }}</td>
-                        <td class="px-4 py-3"><button class="flex mx-auto text-white bg-lime-500 border-0 py-2 px-8 focus:outline-none hover:bg-lime-600 rounded text-lg"
+                        <td class="px-4 py-3">
+                          <button class="flex mx-auto text-white bg-lime-500 border-0 py-2 px-8 focus:outline-none hover:bg-lime-600 rounded text-lg"
                           onclick="location.href='{{ route('stores.show', ['id'=> $store->id]) }}'">詳細を見る</button>
                         </td>
                       </tr>

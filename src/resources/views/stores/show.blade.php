@@ -26,6 +26,8 @@
                           </div>
                         </div>
                       </div>
+                      <button class="flex mx-auto text-white bg-lime-500 border-0 py-2 px-8 focus:outline-none hover:bg-lime-600 rounded text-lg"
+                          onclick="location.href='{{ route('comments.create', ['id'=> $store->id]) }}'">このジムの口コミを書く</button>
                       <div class="lg:w-1/2 md:w-2/3 mx-auto">
                         <div class="flex flex-wrap -m-2">
                           <div class="p-2 w-full">
@@ -115,7 +117,7 @@
                           <form method="post" action="{{ route('stores.destroy', ['id'=>$store->id]) }}">
                             @csrf
                           <div class="p-2 w-full">
-                            <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">削除する</a>
+                            <button class="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">削除する</a>
                           </div>
                           </form>
                          @endif
