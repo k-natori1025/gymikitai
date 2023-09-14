@@ -4,14 +4,13 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UploadImageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        // falseからtrueに変える
         return true;
     }
 
@@ -23,11 +22,6 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:20'],
-            'address' => ['required', 'string', 'max:50'],
-            'phone' => ['string', 'max:255'], 
-            'twentyfour' => ['boolean'],
-            'term' => ['required'],
             'image'=>'image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
@@ -39,5 +33,5 @@ class StoreRequest extends FormRequest
             'mines'=>'指定された拡張子（jpg/jpeg/png）ではありません',
             'max'=>'ファイルサイズは2MB以内にしてください',
         ];
-    }       
+    }
 }

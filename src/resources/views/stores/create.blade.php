@@ -11,6 +11,7 @@
                 <div class="p-6 text-gray-900">
                   <x-input-error :messages="$errors->get('name')" class="mt-2" />
                   <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('image')" class="mt-2" />
                   <section class="text-gray-600 body-font relative">
                     <form method="post" action="{{ route('stores.store') }}" enctype="multipart/form-data">
                       @csrf

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use InterventionImage;
+use App\Services\ImageService;
+// use App\Http\Requests\UploadImageRequest;
 
 class StoreController extends Controller
 {
@@ -18,8 +20,7 @@ class StoreController extends Controller
      */
     public function index(Request $request)
     {
-        // ->get()でコレクション型にする
-        //全件取得
+        //全件取得（->get()でコレクション型）
         // $stores = Store::select('id', 'name', 'address', 'price')->get();
         
         //検索結果取得
@@ -27,7 +28,6 @@ class StoreController extends Controller
         $query = Store::search($search);
         $stores = $query->select('id', 'name', 'address', 'price')->get();
 
-        // compactでviewにデータを渡す
         return view('stores.index', compact('stores'));
     }
 
@@ -44,18 +44,14 @@ class StoreController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        // $user = Auth::user(); //追記
-        $id = Auth::id(); //追記
+        // $user = Auth::user();
+        $id = Auth::id(); 
 
         $imageFile = $request->image;
         if(!is_null($imageFile) && $imageFile->isValid()) {
-            // Storage::putFile('public/stores', $imageFile); リサイズなしの場合
-            $fileName = uniqid(rand().'_');
-            $extension = $imageFile->extension();
-            $fileNameToStore = $fileName.'.'.$extension;
-            $resizedImage = InterventionImage::make($imageFile)->resize(1920, 1080)->encode();
 
-            Storage::put('public/stores/'.$fileNameToStore, $resizedImage);
+            // サービスへの切り離し（第二引数はフォルダ名）
+            $fileNameToStore = ImageService::upload($imageFile, 'stores');
         }
 
         // 登録
@@ -86,11 +82,9 @@ class StoreController extends Controller
     {
         $store = Store::find($id);
 
-        // サービスへの切り離し→コントローラーをスリムに
+        // サービスへの切り離し
         $businessHour = CheckStoreService::checkTwentyfour($store);
-
         $term = CheckStoreService::checkTerm($store);
-
         $visitor = CheckStoreService::checkVisitor($store);
 
         // 登録したユーザー
