@@ -34,6 +34,13 @@ RUN apt-get update \
   && composer config -g process-timeout 3600 \
   && composer config -g repos.packagist composer https://packagist.org
 
+# GDのインストール
+RUN apt-get update &&\
+  # JPEG 対応
+  apt-get install -y libpng-dev libjpeg62-turbo-dev &&\
+  docker-php-ext-configure gd --with-jpeg &&\
+  docker-php-ext-install -j$(nproc) gd
+
 ## Nodeの18系以上だとsegmentation faultエラーが発生することが確認されたため16系を指定
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
