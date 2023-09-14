@@ -9,6 +9,7 @@ use App\Http\Requests\StoreRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use InterventionImage;
 
 class StoreController extends Controller
 {
@@ -20,7 +21,7 @@ class StoreController extends Controller
         // ->get()でコレクション型にする
         //全件取得
         // $stores = Store::select('id', 'name', 'address', 'price')->get();
-
+        
         //検索結果取得
         $search = $request->search;
         $query = Store::search($search);
@@ -48,7 +49,13 @@ class StoreController extends Controller
 
         $imageFile = $request->image;
         if(!is_null($imageFile) && $imageFile->isValid()) {
-            Storage::putFile('public/stores', $imageFile);
+            // Storage::putFile('public/stores', $imageFile); リサイズなしの場合
+            $fileName = uniqid(rand().'_');
+            $extension = $imageFile->extension();
+            $fileNameToStore = $fileName.'.'.$extension;
+            $resizedImage = InterventionImage::make($imageFile)->resize(1920, 1080)->encode();
+
+            Storage::put('public/stores/'.$fileNameToStore, $resizedImage);
         }
 
         // 登録
