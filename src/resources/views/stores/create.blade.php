@@ -69,7 +69,7 @@
                           <div class="p-2 w-full">
                             <div class="relative">
                               <label for="term" class="leading-7 text-sm text-gray-600">料金</label><br>
-                              <select name="term" class="w-50% bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                              <select name="term" class="w-50% mr-3 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 <option value="">選択してください</option> 
                                 <option value="1" {{ old('term') == 1 ? 'selected' : '' }} >1ヶ月</option> 
                                 <option value="2" {{ old('term') == 2 ? 'selected' : '' }} >3ヶ月</option> 

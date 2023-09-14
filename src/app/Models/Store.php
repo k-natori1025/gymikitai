@@ -23,6 +23,7 @@ class Store extends Model
         'visitor',
         'maximum',
         'user_id',
+        'filename',
     ];
 
     // メソッド名先頭にscope。第一引数は$query、第二引数に渡ってくる引数 

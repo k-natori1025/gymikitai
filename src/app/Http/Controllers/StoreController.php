@@ -49,7 +49,6 @@ class StoreController extends Controller
 
         $imageFile = $request->image;
         if(!is_null($imageFile) && $imageFile->isValid()) {
-
             // サービスへの切り離し（第二引数はフォルダ名）
             $fileNameToStore = ImageService::upload($imageFile, 'stores');
         }
@@ -68,6 +67,7 @@ class StoreController extends Controller
             'visitor' => $request->visitor,
             'maximum' => $request->maximum,
             'user_id' => $id,
+            'filename' => $fileNameToStore,
         ]);
 
         session()->flash('flashSuccess', 'ジム情報の登録が完了しました');
