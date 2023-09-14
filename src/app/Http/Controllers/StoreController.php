@@ -8,6 +8,7 @@ use App\Services\CheckStoreService;
 use App\Http\Requests\StoreRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
@@ -42,15 +43,13 @@ class StoreController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        // バリデーションをかける
-        // $request->validate([
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        // ]);
-        
         // $user = Auth::user(); //追記
         $id = Auth::id(); //追記
+
+        $imageFile = $request->image;
+        if(!is_null($imageFile) && $imageFile->isValid()) {
+            Storage::putFile('public/stores', $imageFile);
+        }
 
         // 登録
         $store = Store::create([

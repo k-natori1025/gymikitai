@@ -18,11 +18,11 @@ export default {
     },
 
     // トグルのcssを適用するために追加
-    variants: {
-        extend: {
-            backgroundColor: ['checked', 'focus'],
-        },
-    },
+    // variants: {
+    //     extend: {
+    //         backgroundColor: ['checked', 'focus'],
+    //     },
+    // },
 
     plugins: [forms],
 };

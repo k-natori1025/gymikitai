@@ -11,4 +11,14 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    //viteとlaravelのホストをマッチさせるため追記
+    server: {
+        host: true,
+        hmr: {
+            host: 'localhost'
+        },
+        watch: {
+            usePolling: true
+        }
+    }
 });

@@ -34,8 +34,8 @@ services:
       - DB_USERNAME=${DB_USERNAME:-phper}
       - DB_PASSWORD=${DB_PASSWORD:-secret}
     #レイアウト崩れを防ぐためviteのポートを開放
-    ports:
-      - "5173:5173"
+    # ports:
+    #   - "5173:5173"
   web:
     build:
       context: .
@@ -54,6 +54,7 @@ services:
     build:
       context: .
       dockerfile: ./infra/docker/mysql/Dockerfile
+    container_name: db
     ports:
       - target: 3306
         published: ${DB_PUBLISHED_PORT:-3306}
