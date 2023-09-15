@@ -33,10 +33,10 @@
                       <div class="p-2 w-full">
                       @if($user->isLike($store->id))
                         <button class="flex mx-auto text-red-500 bg-white border-2 border-red-500 py-2 px-8 focus:outline-none hover:bg-red-600 hover:text-white rounded text-lg"
-                          onclick="like({{ $store->id }})">イキタイ解除</button>
+                          onclick="unlike({{ $store->id }})">イキタイ解除</button>
                       @else
                       <button class="flex mx-auto text-white bg-red-500 border-2 border-red-500 py-2 px-8 focus:outline-none hover:bg-red-600 hover:text-white rounded text-lg"
-                          onclick="unlike({{ $store->id }})">イキタイ</button>
+                          onclick="like({{ $store->id }})">イキタイ</button>
                       @endif
                       </div>
                       </div>
