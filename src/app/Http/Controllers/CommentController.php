@@ -21,19 +21,19 @@ class CommentController extends Controller
         $userId = Auth::id(); 
 
         $inputs = request()->validate([
-            'content' => 'required|max:16384'
+            'content' => 'required|max:10000',
+            'title' => 'required|max:100',
         ]);
-
-        dd($request);
 
         $comment = Comment::create([
             'content' => $inputs['content'],
+            'title' => $inputs['title'],
             'user_id' => $userId,
-            'store_id' => $request->store->id,
+            'store_id' => $request->store_id,
         ]);
 
         session()->flash('flashSuccess', 'コメントを投稿しました');
 
-        return to_route('stores.show');
+        return to_route('stores.show', ['id'=> $request->store_id]);
     }
 }
