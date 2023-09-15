@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,9 @@ Route::prefix('comments')
     Route::get('/{id}', 'show')->name('show');
     Route::post('/{id}/destroy', 'destroy')->name('destroy');
 });
+
+Route::post('/like/{storeId}',[LikeController::class,'store'])->name('like.store');
+Route::post('/unlike/{storeId}',[LikeController::class,'destroy'])->name('like.destroy');
 
 // breezeによりできたルーティングを読み込み
 require __DIR__.'/auth.php';

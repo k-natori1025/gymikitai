@@ -21,7 +21,10 @@
                 <!-- <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> -->
                 <div class="flex justify-end">
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                        <button class="m-4 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow p-5" onclick="location.href='{{ route('dashboard') }}'" >
+                            ジムを検索する
+                        </button>
+                        <!-- <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ジムを検索する</a> -->
                     @else
                         <!-- <a href="{{ route('login') }}" class="font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ログイン</a> -->
                         <button class="bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="location.href='{{ route('login') }}'" >

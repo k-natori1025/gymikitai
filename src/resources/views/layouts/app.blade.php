@@ -14,11 +14,49 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <script>
+            // いいね機能非同期処理
+            function like(storeId) {
+                $.ajax({
+                    headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    },
+                    url: `/like/${storeId}`, //URLでコントローラーにパラメーターを渡す
+                    type: "POST",
+                })
+                    .done(function (data, status, xhr) {
+                    console.log(data);
+                    })
+                    .fail(function (xhr, status, error) {
+                    console.log();
+                    });
+            }
+            function unlike(storeId) {
+                $.ajax({
+                    headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    },
+                    url: `/unlike/${storeId}`,
+                    type: "POST",
+                })
+                    .done(function (data, status, xhr) {
+                    console.log(data);
+                    })
+                    .fail(function (xhr, status, error) {
+                    console.log();
+                    });
+            }
+            // 削除確認メッセージ
+            function deletePost(e){
+                'use strict' 
+                if(confirm('本当に削除していいですか?')) {
+                    document.getElementById('delete_' + e.dataset.id).submit() 
+                }
+            } 
+        </script>
+
         <!-- Toastr.jsを使えるようにする -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-
-        <!-- トグル用cssの読み込み -->
-        <!-- <link rel="stylesheet" href="resources/css/toggle.css"> -->
 
     </head>
     <body class="font-sans antialiased">
