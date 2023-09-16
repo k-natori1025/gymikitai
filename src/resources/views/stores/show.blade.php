@@ -133,10 +133,6 @@
                           </div>
                           </form>
                          @endif
-                          <!-- <form method="post" action="{{ route('stores.destroy', [ 'id' => $store->id ])}}" id="delete_{{ $store->id }}">
-                            @csrf
-                            <a href="#" data-id="{{ $store->id }}" onclick="deletePost(this)">削除する</a>
-                          </form> -->
                   </section>
                 </div>
             </div>
