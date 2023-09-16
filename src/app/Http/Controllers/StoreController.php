@@ -26,7 +26,7 @@ class StoreController extends Controller
         //検索結果取得
         $search = $request->search;
         $query = Store::search($search);
-        $stores = $query->select('id', 'name', 'address', 'price')->get();
+        $stores = $query->select('id', 'name', 'address', 'price', 'filename')->get();
 
         return view('stores.index', compact('stores'));
     }
@@ -65,7 +65,30 @@ class StoreController extends Controller
             'term' => $request->term,
             'price' => $request->price,
             'visitor' => $request->visitor,
+            'pool' => $request->pool,
+            'sauna' => $request->sauna,
+            'shower' => $request->shower,
+            'wifi' => $request->wifi,
+            'bench' => $request->bench,
+            'rack' => $request->rack,
             'maximum' => $request->maximum,
+            'smith' => $request->smith,
+            'cable' => $request->cable,
+            'chestpress' => $request->chestpress,
+            'pec' => $request->pec,
+            'shoulderpress' => $request->shoulderpress,
+            'sideraise' => $request->sideraise,
+            'armculr' => $request->armculr,
+            'triceps' => $request->triceps,
+            'latpull' => $request->latpull,
+            'rawing' => $request->rawing,
+            'abcrunch' => $request->abcrunch,
+            'hacksquat' => $request->hacksquat,
+            'legext' => $request->legext,
+            'legpress' => $request->legpress,
+            'tread' => $request->tread,
+            'cross' => $request->cross,
+            'bike' => $request->bike,
             'user_id' => $id,
             'filename' => $fileNameToStore,
         ]);
