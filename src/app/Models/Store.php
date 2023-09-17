@@ -24,6 +24,29 @@ class Store extends Model
         'price',
         'visitor',
         'maximum',
+        'pool',
+        'sauna',
+        'shower',
+        'wifi',
+        'bench',
+        'rack',
+        'smith',
+        'cable',
+        'chestpress',
+        'pec',
+        'shoulderpress',
+        'sideraise',
+        'armcurl',
+        'triceps',
+        'latpull',
+        'rawing',
+        'abcrunch',
+        'hacksquat',
+        'legext',
+        'legpress',
+        'tread',
+        'cross',
+        'bike',
         'user_id',
         'filename',
     ];
@@ -49,7 +72,7 @@ class Store extends Model
     }
 
     public function likes() {
-        return $this->belongsToMany(Like::class);
+        return $this->belongsToMany(User::class, 'likes', 'store_id', 'user_id');
     }
 
 }

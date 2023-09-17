@@ -8,6 +8,7 @@ use App\Services\CheckStoreService;
 use App\Http\Requests\StoreRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Like;
 use Illuminate\Support\Facades\Storage;
 use InterventionImage;
 use App\Services\ImageService;
@@ -26,9 +27,11 @@ class StoreController extends Controller
         //検索結果取得
         $search = $request->search;
         $query = Store::search($search);
-        $stores = $query->select('id', 'name', 'address', 'price', 'filename')->get();
+        $stores = $query->select('id', 'name', 'address', 'price', 'filename')->withCount('likes', 'comments')->get();
 
-        return view('stores.index', compact('stores'));
+        $likes = Like::all();
+
+        return view('stores.index', compact('stores', 'likes'));
     }
 
     /**
@@ -78,7 +81,7 @@ class StoreController extends Controller
             'pec' => $request->pec,
             'shoulderpress' => $request->shoulderpress,
             'sideraise' => $request->sideraise,
-            'armculr' => $request->armculr,
+            'armcurl' => $request->armcurl,
             'triceps' => $request->triceps,
             'latpull' => $request->latpull,
             'rawing' => $request->rawing,
@@ -109,16 +112,18 @@ class StoreController extends Controller
         $businessHour = CheckStoreService::checkTwentyfour($store);
         $term = CheckStoreService::checkTerm($store);
         $visitor = CheckStoreService::checkVisitor($store);
+        $pool = CheckStoreService::checkPool($store);
+        $sauna = CheckStoreService::checkSauna($store);
+        $shower = CheckStoreService::checkShower($store);
+        $wifi = CheckStoreService::checkWifi($store);
 
         // 登録したユーザー
         $writer = User::find($store->user_id);
-        // dd($writer);
 
         //ログイン中のユーザー
         $user = Auth::user();
-        // dd($user);
-
-        return view('stores.show', compact('store', 'businessHour', 'term', 'visitor', 'writer', 'user'));
+    
+        return view('stores.show', compact('store', 'businessHour', 'term', 'visitor', 'writer', 'user', 'pool', 'sauna', 'shower', 'wifi'));
     }
 
     /**
@@ -153,6 +158,29 @@ class StoreController extends Controller
         $store->price = $request->price;
         $store->visitor = $request->visitor;
         $store->maximum = $request->maximum;
+        $store->pool = $request->pool;
+        $store->sauna = $request->sauna;
+        $store->shower = $request->shower;
+        $store->wifi = $request->wifi;
+        $store->bench = $request->bench;
+        $store->rack = $request->rack;
+        $store->smith= $request->smith;
+        $store->cable = $request->cable;
+        $store->chestpress = $request->chestpress;
+        $store->pec = $request->pec;
+        $store->shoulderpress = $request->shoulderpress;
+        $store->sideraise = $request->sideraise;
+        $store->armcurl = $request->armcurl;
+        $store->triceps = $request->triceps;
+        $store->latpull = $request->latpull;
+        $store->rawing = $request->rawing;
+        $store->abcrunch = $request->abcrunch;
+        $store->hacksquat = $request->hacksquat;
+        $store->legext = $request->legext;
+        $store->legpress = $request->legpress;
+        $store->tread = $request->tread;
+        $store->cross = $request->cross;
+        $store->bike = $request->bike;
         $store->filename = $fileNameToStore;
 
         $store->save();

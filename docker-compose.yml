@@ -33,9 +33,6 @@ services:
       - DB_DATABASE=${DB_DATABASE:-laravel}
       - DB_USERNAME=${DB_USERNAME:-phper}
       - DB_PASSWORD=${DB_PASSWORD:-secret}
-    #レイアウト崩れを防ぐためviteのポートを開放
-    # ports:
-    #   - "5173:5173"
   web:
     build:
       context: .

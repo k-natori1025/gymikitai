@@ -23,7 +23,7 @@
             if ($(likeButton).data('is-like') == 1) {
                 $(likeButton).addClass("text-white bg-red-500")
                 $(likeButton).removeClass("text-red-500 bg-white")
-                $(likeButton).text("イキタイ済")
+                $(likeButton).text("イキタイ登録済")
             } else {
                 $(likeButton).removeClass("text-white bg-red-500")
                 $(likeButton).addClass("text-red-500 bg-white")
@@ -53,7 +53,7 @@
             } else {
                 $(likeButton).addClass("text-white bg-red-500")
                 $(likeButton).removeClass("text-red-500 bg-white")
-                $(likeButton).text("イキタイ済")
+                $(likeButton).text("イキタイ登録済")
                 $(likeButton).data('is-like', 1)
                 $.ajax({
                         headers: {

@@ -31,4 +31,40 @@ class CheckStoreService
     }
     return $visitor;
   }
+
+  public static function checkPool($store) {
+    if($store->pool === 1) {
+      $pool = '◯';
+    } else {
+      $pool = '-';
+    }
+    return $pool;
+  }
+
+  public static function checkSauna($store) {
+    if($store->sauna === 1) {
+      $sauna = '◯';
+    } else {
+      $sauna = '-';
+    }
+    return $sauna;
+  }
+
+  public static function checkShower($store) {
+    if($store->shower === 1) {
+      $shower = '◯';
+    } else {
+      $shower = '-';
+    }
+    return $shower;
+  }
+
+  public static function checkWifi($store) {
+    if($store->wifi === 1) {
+      $wifi = '◯';
+    } else {
+      $wifi = '-';
+    }
+    return $wifi;
+  }
 }

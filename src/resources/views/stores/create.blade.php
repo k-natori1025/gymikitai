@@ -101,33 +101,33 @@
                           <div class="p-4 w-full border-b-2 border-gray-300">
                             <h2 class="mt-2 mb-2 font-semibold text-xl text-gray-800 leading-tight">設備情報</h2>
                             <div class="relative">
-                              <label for="visitor" class="leading-7 text-sm text-gray-600">プール</label></br>
+                              <label for="pool" class="leading-7 text-sm text-gray-600">プール</label></br>
                               <label class="relative inline-flex items-center cursor-pointer">
-                              <input type="checkbox" name="visitor" id="visitor" value="1" {{ old('visitor') == 1 ? 'checked' : '' }} class="sr-only peer">
+                              <input type="checkbox" name="pool" id="pool" value="1" {{ old('pool') == 1 ? 'checked' : '' }} class="sr-only peer">
                               <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                               <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">プールあり</span>
                               </label>
                             </div>
                             <div class="relative">
-                              <label for="visitor" class="leading-7 text-sm text-gray-600">サウナ</label></br>
+                              <label for="sauna" class="leading-7 text-sm text-gray-600">サウナ</label></br>
                               <label class="relative inline-flex items-center cursor-pointer">
-                              <input type="checkbox" name="visitor" id="visitor" value="1" {{ old('visitor') == 1 ? 'checked' : '' }} class="sr-only peer">
+                              <input type="checkbox" name="sauna" id="sauna" value="1" {{ old('sauna') == 1 ? 'checked' : '' }} class="sr-only peer">
                               <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                               <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">サウナあり</span>
                               </label>
                             </div>
                             <div class="relative">
-                              <label for="visitor" class="leading-7 text-sm text-gray-600">シャワー</label></br>
+                              <label for="shower" class="leading-7 text-sm text-gray-600">シャワー</label></br>
                               <label class="relative inline-flex items-center cursor-pointer">
-                              <input type="checkbox" name="visitor" id="visitor" value="1" {{ old('visitor') == 1 ? 'checked' : '' }} class="sr-only peer">
+                              <input type="checkbox" name="shower" id="shower" value="1" {{ old('shower') == 1 ? 'checked' : '' }} class="sr-only peer">
                               <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                               <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">シャワーあり</span>
                               </label>
                             </div>
                             <div class="relative">
-                              <label for="visitor" class="leading-7 text-sm text-gray-600">Wi-Fi</label></br>
+                              <label for="wifi" class="leading-7 text-sm text-gray-600">Wi-Fi</label></br>
                               <label class="relative inline-flex items-center cursor-pointer">
-                              <input type="checkbox" name="visitor" id="visitor" value="1" {{ old('visitor') == 1 ? 'checked' : '' }} class="sr-only peer">
+                              <input type="checkbox" name="wifi" id="wifi" value="1" {{ old('wifi') == 1 ? 'checked' : '' }} class="sr-only peer">
                               <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                               <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Wi-Fiあり</span>
                               </label>
@@ -141,88 +141,88 @@
                               <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">kg
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">ベンチの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="bench" class="leading-7 text-sm text-gray-600">ベンチの数</label><br>
+                              <input type="text" id="bench" name="bench" value="{{ old('bench') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">パワーラックの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="rack" class="leading-7 text-sm text-gray-600">パワーラックの数</label><br>
+                              <input type="text" id="rack" name="rack" value="{{ old('rack') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <h2 class="mb-2 mt-4 text-xl text-gray-800 leading-tight">【マルチトレーニングマシン】</h2>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">スミスマシンの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="smith" class="leading-7 text-sm text-gray-600">スミスマシンの数</label><br>
+                              <input type="text" id="smith" name="smith" value="{{ old('smith') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">ケーブルの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="smith" class="leading-7 text-sm text-gray-600">ケーブルの数</label><br>
+                              <input type="text" id="smith" name="smith" value="{{ old('smith') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <h2 class="mb-2 mt-4 text-xl text-gray-800 leading-tight">【胸トレマシン】</h2>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">チェストプレスの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="chestpress" class="leading-7 text-sm text-gray-600">チェストプレスの数</label><br>
+                              <input type="text" id="chestpress" name="chestpress" value="{{ old('chestpress') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">ペックフライの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="pec" class="leading-7 text-sm text-gray-600">ペックフライの数</label><br>
+                              <input type="text" id="pec" name="pec" value="{{ old('pec') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <h2 class="mb-2 mt-4 text-xl text-gray-800 leading-tight">【肩トレマシン】</h2>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">ショルダープレスの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="shoulderpress" class="leading-7 text-sm text-gray-600">ショルダープレスの数</label><br>
+                              <input type="text" id="shoulderpress" name="shoulderpress" value="{{ old('shoulderpress') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">サイドレイズの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="sideraise" class="leading-7 text-sm text-gray-600">サイドレイズの数</label><br>
+                              <input type="text" id="sideraise" name="sideraise" value="{{ old('sideraise') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <h2 class="mb-2 mt-4 text-xl text-gray-800 leading-tight">【腕トレマシン】</h2>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">アームカールの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="armcurl" class="leading-7 text-sm text-gray-600">アームカールの数</label><br>
+                              <input type="text" id="armcurl" name="armcurl" value="{{ old('armcurl') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">トライセプスエクステンションの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="triceps" class="leading-7 text-sm text-gray-600">トライセプスエクステンションの数</label><br>
+                              <input type="text" id="triceps" name="triceps" value="{{ old('triceps') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <h2 class="mb-2 mt-4 text-xl text-gray-800 leading-tight">【背中トレマシン】</h2>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">ラットプルの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="latpull" class="leading-7 text-sm text-gray-600">ラットプルの数</label><br>
+                              <input type="text" id="latpull" name="latpull" value="{{ old('latpull') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">ローイングの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="rawing" class="leading-7 text-sm text-gray-600">ローイングの数</label><br>
+                              <input type="text" id="rawing" name="rawing" value="{{ old('rawing') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <h2 class="mb-2 mt-4 text-xl text-gray-800 leading-tight">【腹筋トレマシン】</h2>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">アブドミナルクランチの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="abcrunch" class="leading-7 text-sm text-gray-600">アブドミナルクランチの数</label><br>
+                              <input type="text" id="abcrunch" name="abcrunch" value="{{ old('abcrunch') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <h2 class="mb-2 mt-4 text-xl text-gray-800 leading-tight">【脚トレマシン】</h2>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">ハックスクワットの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="hacksquat" class="leading-7 text-sm text-gray-600">ハックスクワットの数</label><br>
+                              <input type="text" id="hacksquat" name="hacksquat" value="{{ old('hacksquat') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">レッグエクステンションの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="legext" class="leading-7 text-sm text-gray-600">レッグエクステンションの数</label><br>
+                              <input type="text" id="legext" name="legext" value="{{ old('legext') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">レッグプレスの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="legpress" class="leading-7 text-sm text-gray-600">レッグプレスの数</label><br>
+                              <input type="text" id="legpress" name="legpress" value="{{ old('legpress') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <h2 class="mb-2 mt-4 text-xl text-gray-800 leading-tight">【有酸素トレマシン】</h2>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">トレッドミルの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="tread" class="leading-7 text-sm text-gray-600">トレッドミルの数</label><br>
+                              <input type="text" id="maximum" name="tread" value="{{ old('tread') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">クロストレーナーの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="cross" class="leading-7 text-sm text-gray-600">クロストレーナーの数</label><br>
+                              <input type="text" id="cross" name="cross" value="{{ old('cross') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="maximum" class="leading-7 text-sm text-gray-600">エアロバイクの数</label><br>
-                              <input type="text" id="maximum" name="maximum" value="{{ old('maximum') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="bike" class="leading-7 text-sm text-gray-600">エアロバイクの数</label><br>
+                              <input type="text" id="bike" name="bike" value="{{ old('bike') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                           </div>
 

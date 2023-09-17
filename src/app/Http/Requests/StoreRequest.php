@@ -27,7 +27,6 @@ class StoreRequest extends FormRequest
             'address' => ['required', 'string', 'max:50'],
             'phone' => ['string', 'max:255'], 
             'twentyfour' => ['boolean'],
-            'term' => ['required'],
             'image'=>'image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
@@ -39,5 +38,5 @@ class StoreRequest extends FormRequest
             'mines'=>'指定された拡張子（jpg/jpeg/png）ではありません',
             'max'=>'ファイルサイズは2MB以内にしてください',
         ];
-    }       
+    }
 }
