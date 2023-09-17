@@ -12,13 +12,11 @@ use App\Models\Like;
 use Illuminate\Support\Facades\Storage;
 use InterventionImage;
 use App\Services\ImageService;
+use App\Services\StoreService;
 // use App\Http\Requests\UploadImageRequest;
 
 class StoreController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
         //全件取得（->get()でコレクション型）
@@ -34,17 +32,11 @@ class StoreController extends Controller
         return view('stores.index', compact('stores', 'likes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('stores.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreRequest $request)
     {
         // $user = Auth::user();
@@ -56,54 +48,14 @@ class StoreController extends Controller
             $fileNameToStore = ImageService::upload($imageFile, 'stores');
         }
 
-        // 登録
-        $store = Store::create([
-            'name' => $request->name,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'url' => $request->url,
-            'twentyfour' => $request->twentyfour,
-            'open' => $request->open,
-            'close' => $request->close,
-            'term' => $request->term,
-            'price' => $request->price,
-            'visitor' => $request->visitor,
-            'pool' => $request->pool,
-            'sauna' => $request->sauna,
-            'shower' => $request->shower,
-            'wifi' => $request->wifi,
-            'bench' => $request->bench,
-            'rack' => $request->rack,
-            'maximum' => $request->maximum,
-            'smith' => $request->smith,
-            'cable' => $request->cable,
-            'chestpress' => $request->chestpress,
-            'pec' => $request->pec,
-            'shoulderpress' => $request->shoulderpress,
-            'sideraise' => $request->sideraise,
-            'armcurl' => $request->armcurl,
-            'triceps' => $request->triceps,
-            'latpull' => $request->latpull,
-            'rawing' => $request->rawing,
-            'abcrunch' => $request->abcrunch,
-            'hacksquat' => $request->hacksquat,
-            'legext' => $request->legext,
-            'legpress' => $request->legpress,
-            'tread' => $request->tread,
-            'cross' => $request->cross,
-            'bike' => $request->bike,
-            'user_id' => $id,
-            'filename' => $fileNameToStore,
-        ]);
+        // 登録(サービス層への切り離し)
+        $store = StoreService::addStore($request, $id, $fileNameToStore);
 
         session()->flash('flashSuccess', 'ジム情報の登録が完了しました');
 
         return to_route('stores.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $store = Store::find($id);
@@ -126,18 +78,12 @@ class StoreController extends Controller
         return view('stores.show', compact('store', 'businessHour', 'term', 'visitor', 'writer', 'user', 'pool', 'sauna', 'shower', 'wifi'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $store = Store::find($id);
         return view('stores.edit', compact('store'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $store = Store::find($id);
@@ -193,9 +139,6 @@ class StoreController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $store = Store::find($id);
