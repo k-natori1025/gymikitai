@@ -24,6 +24,8 @@ class StoreController extends Controller
         
         //検索結果取得
         $search = $request->search;
+        $stores = StoreService::searchStore($search);
+
         $query = Store::search($search);
         $stores = $query->select('id', 'name', 'address', 'price', 'filename')->withCount('likes', 'comments')->get();
 
@@ -95,43 +97,7 @@ class StoreController extends Controller
             $fileNameToStore = $store->filename;
         }
 
-        $store->name = $request->name;
-        $store->address = $request->address;
-        $store->phone = $request->phone;
-        $store->url = $request->url;
-        $store->twentyfour = $request->twentyfour;
-        $store->open = $request->open;
-        $store->close = $request->close;
-        $store->term = $request->term;
-        $store->price = $request->price;
-        $store->visitor = $request->visitor;
-        $store->maximum = $request->maximum;
-        $store->pool = $request->pool;
-        $store->sauna = $request->sauna;
-        $store->shower = $request->shower;
-        $store->wifi = $request->wifi;
-        $store->bench = $request->bench;
-        $store->rack = $request->rack;
-        $store->smith= $request->smith;
-        $store->cable = $request->cable;
-        $store->chestpress = $request->chestpress;
-        $store->pec = $request->pec;
-        $store->shoulderpress = $request->shoulderpress;
-        $store->sideraise = $request->sideraise;
-        $store->armcurl = $request->armcurl;
-        $store->triceps = $request->triceps;
-        $store->latpull = $request->latpull;
-        $store->rawing = $request->rawing;
-        $store->abcrunch = $request->abcrunch;
-        $store->hacksquat = $request->hacksquat;
-        $store->legext = $request->legext;
-        $store->legpress = $request->legpress;
-        $store->tread = $request->tread;
-        $store->cross = $request->cross;
-        $store->bike = $request->bike;
-        $store->filename = $fileNameToStore;
-
-        $store->save();
+        $store = StoreService::modifyStore($store, $request, $fileNameToStore);
 
         session()->flash('flashSuccess', 'ジム情報を編集しました');
 
