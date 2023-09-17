@@ -154,8 +154,8 @@
                               <input type="text" id="smith" name="smith" value="{{ old('smith') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <div class="relative">
-                              <label for="smith" class="leading-7 text-sm text-gray-600">ケーブルの数</label><br>
-                              <input type="text" id="smith" name="smith" value="{{ old('smith') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
+                              <label for="cable" class="leading-7 text-sm text-gray-600">ケーブルの数</label><br>
+                              <input type="text" id="cable" name="cable" value="{{ old('cable') }}" class="w-50% mr-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">台
                             </div>
                             <h2 class="mb-2 mt-4 text-xl text-gray-800 leading-tight">【胸トレマシン】</h2>
                             <div class="relative">

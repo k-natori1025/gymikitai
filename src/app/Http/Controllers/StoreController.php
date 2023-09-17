@@ -145,6 +145,8 @@ class StoreController extends Controller
         $imageFile = $request->image;
         if(!is_null($imageFile) && $imageFile->isValid()) {
             $fileNameToStore = ImageService::upload($imageFile, 'stores');
+        } else {
+            $fileNameToStore = $store->filename;
         }
 
         $store->name = $request->name;
