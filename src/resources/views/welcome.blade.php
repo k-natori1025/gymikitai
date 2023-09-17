@@ -15,7 +15,7 @@
 
     </head>
     <body class="antialiased">
-        <div class="bg-cover bg-center bg-opacity-50 min-h-screen mb-10" style="background-image: url(/image/top2.jpeg);">
+        <div class="bg-cover bg-center bg-opacity-50 min-h-screen" style="background-image: url(/image/top2.jpeg);">
         <!-- <div class="relative bg-center sm:flex sm:justify-center sm:items-center min-h-screen bg-gray-100 dark:bg-gray-900 selection:bg-red-500 "> -->
             @if (Route::has('login'))
                 <!-- <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> -->
@@ -42,7 +42,10 @@
             @endif
             <div class="flex justify-center">
                 <image src="/image/logo1.png" class="items-center" >    
-            </div>       
+            </div>
+            <h1 class="sm:text-3xl text-2xl font-extrabold title-font text-center text-white mb-20">あなたにとって最適なジムがきっと見つかる
+                <br class="hidden sm:block">トレーニーによるトレーニーのためのジム口コミアプリ
+            </h1>       
         </div>
     </body>
 </html>
