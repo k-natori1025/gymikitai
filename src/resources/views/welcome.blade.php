@@ -44,7 +44,7 @@
                 <image src="/image/logo1.png" class="items-center" >    
             </div>
             <h1 class="sm:text-3xl text-2xl font-extrabold title-font text-center text-white mb-20">あなたにとって最適なジムがきっと見つかる
-                <br class="hidden sm:block">トレーニーによるトレーニーのためのジム口コミアプリ
+                <br class="hidden sm:block">トレーニーによるトレーニーのためのジムの口コミアプリ
             </h1>       
         </div>
     </body>
