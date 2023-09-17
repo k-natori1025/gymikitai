@@ -17,6 +17,12 @@ use App\Services\StoreService;
 
 class StoreController extends Controller
 {
+    private $service;
+    public function __construct()
+    {
+        $this->service = new StoreService();
+    }
+    
     public function index(Request $request)
     {
         //全件取得（->get()でコレクション型）
@@ -24,10 +30,7 @@ class StoreController extends Controller
         
         //検索結果取得
         $search = $request->search;
-        $stores = StoreService::searchStore($search);
-
-        // $query = Store::search($search);
-        // $stores = $query->select('id', 'name', 'address', 'price', 'filename')->withCount('likes', 'comments')->get();
+        $stores = $this->service->searchStores($search);
 
         $likes = Like::all();
 
@@ -42,16 +45,18 @@ class StoreController extends Controller
     public function store(StoreRequest $request)
     {
         // $user = Auth::user();
-        $id = Auth::id(); 
+        $userId = Auth::id(); 
 
         $imageFile = $request->image;
         if(!is_null($imageFile) && $imageFile->isValid()) {
             // サービスへの切り離し（第二引数はフォルダ名）
             $fileNameToStore = ImageService::upload($imageFile, 'stores');
+        } else {
+            $fileNameToStore = '';
         }
 
         // 登録(サービス層への切り離し)
-        $store = StoreService::addStore($request, $id, $fileNameToStore);
+        $store = $this->service->addStore($request, $userId, $fileNameToStore);
 
         session()->flash('flashSuccess', 'ジム情報の登録が完了しました');
 
@@ -97,7 +102,7 @@ class StoreController extends Controller
             $fileNameToStore = $store->filename;
         }
 
-        $store = StoreService::modifyStore($store, $request, $fileNameToStore);
+        $store = $this->service->modifyStore($store, $request, $fileNameToStore);
 
         session()->flash('flashSuccess', 'ジム情報を編集しました');
 

@@ -34,9 +34,9 @@ class StoreRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'image'=>'指定されたファイルが画像ではありません',
-            'mines'=>'指定された拡張子（jpg/jpeg/png）ではありません',
-            'max'=>'ファイルサイズは2MB以内にしてください',
+            'image.image'=>'指定されたファイルが画像ではありません',
+            'image.mines'=>'指定された拡張子（jpg/jpeg/png）ではありません',
+            'image.max'=>'ファイルサイズは2MB以内にしてください',
         ];
     }
 }

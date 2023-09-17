@@ -46,6 +46,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
+        session()->flash('flashSuccess', 'ログアウトしました');
+
         return redirect('/');
     }
 }

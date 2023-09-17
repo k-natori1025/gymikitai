@@ -18,7 +18,7 @@ class CheckStoreService
     if($store->term == 2) { $term = "3ヶ月で"; }
     if($store->term == 3) { $term = "半年で"; }
     if($store->term == 4) { $term = "1年で"; }
-    // else { $term = ""; }
+    else { $term = ""; }
 
     return $term;
   }

@@ -19,17 +19,25 @@ class StoreService
   // }
   // return $query;
   // }
+  private $repository;
 
-  public static function searchStore($search) {
+  public function __construct()
+  {
+    $this->repository = new StoreRepository();
+  }
+
+  public function searchStores($search) {
     if($search !== null){
       $search_split = mb_convert_kana($search, 's'); // 全角スペースを半角 
       $search_split2 = preg_split('/[\s]+/', $search_split); //空白で区切る 
+    } else {
+      $search_split2 = [];
     }
-    return StoreRepository::scopeSearch($search_split2);
+    return $this->repository->findAll($search_split2);
   }
 
-  public static function addStore($request, $id, $fileNameToStore) {
-    $store = Store::create([
+  public function addStore($request, $userId, $fileNameToStore) {
+    $data = [
       'name' => $request->name,
       'address' => $request->address,
       'phone' => $request->phone,
@@ -64,49 +72,50 @@ class StoreService
       'tread' => $request->tread,
       'cross' => $request->cross,
       'bike' => $request->bike,
-      'user_id' => $id,
+      'user_id' => $userId,
       'filename' => $fileNameToStore,
-  ]);
+  ];
+  $this->repository->create($data);
   }
 
-  public static function modifyStore($store, $request, $fileNameToStore) {
-    $store->name = $request->name;
-        $store->address = $request->address;
-        $store->phone = $request->phone;
-        $store->url = $request->url;
-        $store->twentyfour = $request->twentyfour;
-        $store->open = $request->open;
-        $store->close = $request->close;
-        $store->term = $request->term;
-        $store->price = $request->price;
-        $store->visitor = $request->visitor;
-        $store->maximum = $request->maximum;
-        $store->pool = $request->pool;
-        $store->sauna = $request->sauna;
-        $store->shower = $request->shower;
-        $store->wifi = $request->wifi;
-        $store->bench = $request->bench;
-        $store->rack = $request->rack;
-        $store->smith= $request->smith;
-        $store->cable = $request->cable;
-        $store->chestpress = $request->chestpress;
-        $store->pec = $request->pec;
-        $store->shoulderpress = $request->shoulderpress;
-        $store->sideraise = $request->sideraise;
-        $store->armcurl = $request->armcurl;
-        $store->triceps = $request->triceps;
-        $store->latpull = $request->latpull;
-        $store->rawing = $request->rawing;
-        $store->abcrunch = $request->abcrunch;
-        $store->hacksquat = $request->hacksquat;
-        $store->legext = $request->legext;
-        $store->legpress = $request->legpress;
-        $store->tread = $request->tread;
-        $store->cross = $request->cross;
-        $store->bike = $request->bike;
-        $store->filename = $fileNameToStore;
+  public function modifyStore($store, $request, $fileNameToStore) {
+      $store->name = $request->name;
+      $store->address = $request->address;
+      $store->phone = $request->phone;
+      $store->url = $request->url;
+      $store->twentyfour = $request->twentyfour;
+      $store->open = $request->open;
+      $store->close = $request->close;
+      $store->term = $request->term;
+      $store->price = $request->price;
+      $store->visitor = $request->visitor;
+      $store->maximum = $request->maximum;
+      $store->pool = $request->pool;
+      $store->sauna = $request->sauna;
+      $store->shower = $request->shower;
+      $store->wifi = $request->wifi;
+      $store->bench = $request->bench;
+      $store->rack = $request->rack;
+      $store->smith= $request->smith;
+      $store->cable = $request->cable;
+      $store->chestpress = $request->chestpress;
+      $store->pec = $request->pec;
+      $store->shoulderpress = $request->shoulderpress;
+      $store->sideraise = $request->sideraise;
+      $store->armcurl = $request->armcurl;
+      $store->triceps = $request->triceps;
+      $store->latpull = $request->latpull;
+      $store->rawing = $request->rawing;
+      $store->abcrunch = $request->abcrunch;
+      $store->hacksquat = $request->hacksquat;
+      $store->legext = $request->legext;
+      $store->legpress = $request->legpress;
+      $store->tread = $request->tread;
+      $store->cross = $request->cross;
+      $store->bike = $request->bike;
+      $store->filename = $fileNameToStore;
 
-        $store->save();
+      $store->save();
   }
 
   

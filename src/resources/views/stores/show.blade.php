@@ -24,7 +24,7 @@
         @else
         <p class="mb-2 leading-relaxed">営業時間：{{ $store->open }}〜{{ $store->close }}</p>
         @endif
-        <p class="mb-2 leading-relaxed">料金：{{ $term }}{{ $store->price }}円</p>
+        <p class="mb-2 leading-relaxed">料金：@if($term) {{ $term }}{{ $store->price }}円 @else 不明です @endif</p>
         <p class="mb-2 leading-relaxed">ビジター：{{ $visitor }}</p>
         <p class="mb-2 leading-relaxed">このジムの登録者：{{ $writer->name }}</p>
         <div class="flex lg:flex-row md:flex-col">
