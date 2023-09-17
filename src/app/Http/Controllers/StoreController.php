@@ -26,8 +26,8 @@ class StoreController extends Controller
         $search = $request->search;
         $stores = StoreService::searchStore($search);
 
-        $query = Store::search($search);
-        $stores = $query->select('id', 'name', 'address', 'price', 'filename')->withCount('likes', 'comments')->get();
+        // $query = Store::search($search);
+        // $stores = $query->select('id', 'name', 'address', 'price', 'filename')->withCount('likes', 'comments')->get();
 
         $likes = Like::all();
 
