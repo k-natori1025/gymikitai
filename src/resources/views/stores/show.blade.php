@@ -20,11 +20,15 @@
         <p class="mb-2 leading-relaxed">電話番号：{{ $store->phone }}</p>
         <p class="mb-2 leading-relaxed">ホームページ：{{ $store->url }}</p>
         @if($store->twentyfour)
-        <p class="mb-2 leading-relaxed">営業時間：{{ $businessHour }}</p>
+          <p class="mb-2 leading-relaxed">営業時間：{{ $businessHour }}</p>
         @else
-        <p class="mb-2 leading-relaxed">営業時間：{{ $store->open }}〜{{ $store->close }}</p>
+          <p class="mb-2 leading-relaxed">営業時間：{{ $store->open }}〜{{ $store->close }}</p>
         @endif
-        <p class="mb-2 leading-relaxed">料金：@if($term) {{ $term }}{{ $store->price }}円 @else 不明です @endif</p>
+        @if(!empty($store->term))
+          <p class="mb-2 leading-relaxed">料金：{{ $term }}{{ $store->price }}円</p>
+        @else
+          <p class="mb-2 leading-relaxed">料金：不明です。</p>
+        @endif
         <p class="mb-2 leading-relaxed">ビジター：{{ $visitor }}</p>
         <p class="mb-2 leading-relaxed">このジムの登録者：{{ $writer->name }}</p>
         <div class="flex lg:flex-row md:flex-col">
@@ -74,7 +78,6 @@
             <tr>
               <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-lg bg-gray-100 border-x-2 border-y-2 border-gray-200 rounded-tl rounded-bl text-center">ベンチ</th>
               <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-lg bg-gray-100 border-x-2 border-y-2 border-gray-200 text-center">パワーラック</th>
-              <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-lg bg-gray-100 border-x-2 border-y-2 border-gray-200 text-center">ダンベル最小</th>
               <th class="px-4 py-3 title-font tracking-wider font-semibold text-gray-900 text-lg bg-gray-100 border-x-2 border-y-2 border-gray-200 text-center">ダンベル最大</th>
             </tr>
           </thead>
@@ -82,7 +85,6 @@
             <tr>
               <td class="px-4 py-3 text-lg text-gray-900 font-semibold text-center border-b-2 border-l-2 border-gray-200">{{ $store->bench }}台</td>
               <td class="px-4 py-3 text-lg text-gray-900 font-semibold text-center border-b-2 border-l-2 border-gray-200">{{ $store->rack }}台</td>
-              <td class="px-4 py-3 text-lg text-gray-900 font-semibold text-center border-b-2 border-l-2 border-gray-200">{{ $store->minimum }}kg</td>
               <td class="px-4 py-3 text-lg text-gray-900 font-semibold text-center border-b-2 border-l-2 border-r-2 border-gray-200">{{ $store->maximum }}kg</td>
               </td>
             </tr>
