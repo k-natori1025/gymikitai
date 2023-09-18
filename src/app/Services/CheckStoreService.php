@@ -14,11 +14,21 @@ class CheckStoreService
   }
 
   public static function checkTerm($store) {
-    if($store->term == 1) { $term = "1ヶ月で"; }
-    if($store->term == 2) { $term = "3ヶ月で"; }
-    if($store->term == 3) { $term = "半年で"; }
-    if($store->term == 4) { $term = "1年で"; }
-    else { $term = ''; }
+    if($store->term == 1) { 
+      $term = "1ヶ月で"; 
+    }
+    elseif($store->term == 2) { 
+      $term = "3ヶ月で"; 
+    }
+    elseif($store->term == 3) { 
+      $term = "半年で"; 
+    }
+    elseif($store->term == 4) { 
+      $term = "1年で"; 
+    }
+    else { 
+      $term = ''; 
+    }
 
     return $term;
   }
