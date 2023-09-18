@@ -65,12 +65,23 @@
 - ログイン
 - ログアウト
 - ユーザー情報編集
+
+https://github.com/k-natori1025/gymikitai/assets/130017253/c96f3440-d52c-449a-b098-658e95f02fb6
+
 - ジム新規登録
 - ジム情報編集
 - ジム削除
+
+https://github.com/k-natori1025/gymikitai/assets/130017253/143a1ab0-74e6-4802-9789-6bb30fcb412e
+
 - ジムに対する口コミ投稿
 - ジムに対するいいね
+
+https://github.com/k-natori1025/gymikitai/assets/130017253/f42887ff-6bca-4e9b-8264-83b8b20e43e3
+
 - ジム検索
+
+https://github.com/k-natori1025/gymikitai/assets/130017253/9bcf8e5a-e244-45e3-8b0d-6995a2712d0a
 
 <br />
 
