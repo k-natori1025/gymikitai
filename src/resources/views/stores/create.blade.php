@@ -11,6 +11,26 @@
                 <div class="p-6 text-gray-900">
                   <x-input-error :messages="$errors->get('name')" class="mt-2" />
                   <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('maximum')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('bench')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('rack')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('smith')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('cable')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('chestpress')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('pec')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('shoulderpress')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('sideraise')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('armcurl')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('triceps')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('latpull')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('rawing')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('abcrunch')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('hacksquat')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('legext')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('legpress')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('tread')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('cross')" class="mt-2" />
+                  <x-input-error :messages="$errors->get('bike')" class="mt-2" />
                   <x-input-error :messages="$errors->get('image')" class="mt-2" />
                   <section class="text-gray-600 body-font relative">
                     <form method="post" action="{{ route('stores.store') }}" enctype="multipart/form-data">
